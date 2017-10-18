@@ -1,10 +1,70 @@
+@import "../main";
+
 .pizza-card {
+
+  @name-size: 2.4em;
+  @state-size:       @name-size * 0.55;
+  @buy-text-size:    @name-size * 0.8;
+  @ingredients-size: @name-size * 0.45;
+  @type-size:        @name-size * 0.4;
+  @params-size:      @name-size * 0.43;
+  @price-size:       @name-size * 0.9;
+
+  background-color: #ffffff;
+  position: relative;
+
+  .state {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    font-size: @state-size;
+  }
+
+
   img {
     max-width: 250px;
   }
 
-  h3 {
-    color: @mainColor;
-    background-color: lighten(@mainColor, 45%);
+  .caption {
+    .name {
+      color: @nameColor;
+      font-weight: bold;
+      font-size: @name-size;
+    }
+    .type {
+      font-size: @type-size;
+      opacity: 0.6;
+      margin-top: -10px;
+      margin-bottom: -1px;
+    }
+    .ingredients {
+      font-size: @ingredients-size;
+    }
   }
+
+  .buy-columns {
+    font-size: @params-size;
+
+    .price, .currency {
+      font-weight: bold;
+    }
+    .price {
+      font-size: @price-size;
+      margin-bottom: -10px;
+    }
+
+    button {
+      color: white;
+      background-color: @primaryColor;
+      margin: 10%;
+      transition: all 0.2s ease;
+    }
+    button {
+      &:hover {
+        box-shadow: #d0ed71 4px 2px 10px 2px;
+      }
+    }
+
+  }
+
 }

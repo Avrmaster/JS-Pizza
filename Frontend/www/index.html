@@ -16,56 +16,85 @@
 </head>
 <body>
 <div id="cart"></div>
+
+<div class="container-fluid header">
+
+    <div class="info-badge main-badge text-center">
+        PIZZA<br>
+        KMA
+    </div>
+
+    <div class="row main-row">
+        <div class="row first-row">
+            <div class="col-sm-2">
+                (044) 222 5 222
+            </div>
+            <div class="col-sm-3">
+                24 години 7 днів на тиждень
+            </div>
+            <div class="col-sm-3">
+                Безкоштовна доставка піци
+            </div>
+        </div>
+        <hr class="row">
+        <div class="row">
+            <div class="col-sm-3">
+                Піца
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="text-center all-pizzas">
+    Усі піци
+</div>
+
 <div class="container">
     <div class="row" id="pizza_list">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail pizza-card">
+                <span class="label label-danger state">Нова</span>
+
                 <img src="assets/images/pizza_1.jpg">
 
-                <div class="caption"><h3>Thumbnail label</h3>
+                <div class="caption">
+                    <h3 class="name">Імпреза</h3>
 
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-
-                    <p>
-                        <a href="#" class="btn btn-primary">Button 2</a>
-                        <a href="#" class="btn btn-default">Button 1</a>
-                    </p>
+                    <p class="type">М'ясна піца</p>
+                    <p class="ingredients">Балик, салямі, куриця, сир моцарелла, сир рокфорд, ананаси, томатна паста, петрушка</p>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail pizza-card">
-                <img src="assets/images/pizza_2.jpg">
-
-                <div class="caption"><h3>Thumbnail label</h3>
-
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-
-                    <p>
-                        <a href="#" class="btn btn-primary">Button 3</a>
-                        <a href="#" class="btn btn-default">Button 4</a>
-                    </p>
+                <div class="buy-columns">
+                    <div class="col-xs-6 left text-center">
+                        <div class="diameter"><img src="assets/images/size-icon.svg"/> 30</div>
+                        <div class="mass"><img src="assets/images/weight.svg"/> 370</div>
+                        <div class="price">99</div>
+                        <div class="currency">грн.</div>
+                        <button type="button" class="btn buy-small">Купити</button>
+                    </div>
+                    <div class="col-xs-6 right text-center">
+                        <div class="diameter"><img src="assets/images/size-icon.svg"/> 40</div>
+                        <div class="mass"><img src="assets/images/weight.svg"/> 660</div>
+                        <div class="price">169</div>
+                        <div class="currency">грн.</div>
+                        <button type="button" class="btn buy-large">Купити</button>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail pizza-card">
-                <img src="assets/images/pizza_3.jpg">
+                <span class="clearfix"/>
 
-                <div class="caption"><h3>Thumbnail label</h3>
-
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-
-                    <p>
-                        <a href="#" class="btn btn-primary">Button 5</a>
-                        <a href="#" class="btn btn-default">Button 6</a>
-                    </p>
-                </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="info-badge sale-badge text-center">
+    ЦЬОГО<br>
+    ТИЖНЯ<br>
+    НА ВСЕ<br>
+    <hr>
+    -20%
 </div>
 
 <!-- jQuery JavaScript -->
