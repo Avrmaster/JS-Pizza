@@ -1,0 +1,61 @@
+@badgeBackground: #e6842e;
+@badgeWidth: 100px;
+@badgeHeight: 100px;
+@badgeMargin: 10px;
+@badgeTextColor: white;
+@topBadgeTextSize: 25px;
+@botBadgeTextSize: 16px;
+
+
+.discount-badge {
+  box-sizing: border-box;
+  width: @badgeWidth;
+  min-height: @badgeHeight;
+
+  background: @badgeBackground;
+  position:fixed;
+  margin: @badgeMargin;
+
+  color: @badgeTextColor;
+  text-align: center;
+
+  .content {
+    position: relative;
+  }
+  .border {
+    position: absolute;
+    height: 20%;
+    width: @badgeWidth;
+    background: url('../images/discount.svg') no-repeat;
+    background-size: 100% 100%;
+  }
+  .text {
+    padding: 2px 20px;
+  }
+}
+
+.top-badge {
+  top: 0;
+  .text {
+    font-size: @topBadgeTextSize;
+  }
+  .border {
+    top: @badgeHeight;
+    transform: scaleY(-1);
+  }
+  z-index: 1;
+}
+
+.bottom-badge {
+  bottom: 0;
+  .text {
+    font-size: @botBadgeTextSize;
+  }
+  .border {
+    bottom: 100%;
+  }
+  hr {
+    color: black;
+    margin: 2px 3px;
+  }
+}

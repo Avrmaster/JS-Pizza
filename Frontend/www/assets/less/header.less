@@ -1,0 +1,77 @@
+@import "badge";
+@import "cart";
+@headerColor: rgba(0, 0, 0, 0.8);
+@headerTopTextColor: #b1b1b1;
+@headerTextColor: white;
+@headerTextSize: 21px;
+@headerHeight: 110px;
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: @headerHeight;
+
+  padding: 10px (4*@badgeMargin+@cartWidth) 10px
+    (4*@badgeMargin + @badgeWidth);
+
+  min-width: 265px + @cartWidth;
+
+  background: @headerColor;
+  color: @headerTextColor;
+  font-size: @headerTextSize;
+
+  .first-row, .second-row, .info-part {
+    display: inline-block;
+  }
+
+  .first-row {
+    width: 100%;
+    color: @headerTopTextColor;
+  }
+
+  .info-part {
+    margin-right: 20px;
+  }
+
+  .phone {
+    font-size: 1.2*@headerTextSize;
+    @media screen {
+      @media (max-width: (480px + @cartWidth)) {
+        font-size: 0.7*@headerTextSize;
+        margin: 0;
+      }
+      @media (max-width: (320px + @cartWidth)) {
+        font-size: 0.5*@headerTextSize;
+      }
+    }
+  }
+  .time, .pizza, hr {
+    font-size: 0.7*@headerTextSize;
+    @media screen {
+      @media (max-width: (690px + @cartWidth)) {
+        display: none;
+      }
+    }
+  }
+  .free {
+    @media screen {
+      @media (max-width: (960px + @cartWidth)) {
+        display: none;
+      }
+    }
+  }
+  .btn-holder {
+    display: inline-block;
+    float: right;
+    button {
+      font-size: 0.9*@headerTextSize;
+    }
+  }
+
+  hr {
+    margin: 10px 0;
+  }
+
+}

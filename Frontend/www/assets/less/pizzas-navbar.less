@@ -1,0 +1,29 @@
+@import "main";
+
+@activeBackgroundColor: @nameColor;
+@activeTextColor: white;
+@itemsTextSize: @allPizzasTextSize*0.6;
+
+.types-buttons {
+  text-align: center;
+  .active, .active:hover, .active:active, .active:hover:active {
+    //Believe me, all of these selectors are necessary
+    background-color: @activeBackgroundColor;
+    color: @activeTextColor;
+    border: none;
+  }
+  :active, :active:not(active), :hover:not(active), :active:hover {
+    //Believe me, all of these selectors are necessary
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  label {
+    font-size: @itemsTextSize;
+    color: @activeBackgroundColor;
+    background-color: transparent;
+    border: none;
+  }
+
+}
+

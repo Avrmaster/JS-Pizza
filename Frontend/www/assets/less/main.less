@@ -1,74 +1,55 @@
 @primaryColor: #f0a53c;
 @nameColor: #EB6600;
-@badgeBackground: #de812a;
 
-@badgeTextSize: 1.8em;
-@AllPizzasTextSize: @badgeTextSize * 0.6;
+@badgeTextSize: 65px;
+@allPizzasTextSize: @badgeTextSize * 0.6;
+@cntColor: white;
 
 @badgeSize: 100px;
 @badgeLeftMargin: 10px;
 
 body {
-  background-color: #fff8cf;
-}
-
-@font-face {
-  font-family: primaryFont;
-  src: url("../fonts/AvenirNextLTPro-Regular.otf");
+  background-color: #fff;
 }
 
 * {
   font-family: primaryFont, Serif;
 }
 
+.all-pizzas-text {
+  padding-top: @headerHeight;
+  text-align: center;
+  font-size: @allPizzasTextSize;
+  .cnt {
+    display: inline-block;
+    background-color: @nameColor;
+    border-radius: 50%;
+    color: @cntColor;
+    font-size: @allPizzasTextSize*0.5;
+    width: @allPizzasTextSize*0.65;
+    height: @allPizzasTextSize*0.65;
+  }
+}
+
 .container {
   padding: 20px;
 }
 
-.header {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-
-  .first-row {
-    opacity: 0.4;
-  }
-
-  hr {
-    margin: 9px 3px;
-  }
-
-  .main-row {
-    margin-left: @badgeSize+@badgeLeftMargin;
-  }
+.left-panel {
+  //position: absolute;
+  //right: @cartWidth;
+  min-width: 240px + @cartWidth;
+  padding-right: @cartWidth;
 }
 
-.all-pizzas {
-  font-size: @AllPizzasTextSize;
-}
 
-.info-badge {
-  position:absolute;
-
-  background-color: @badgeBackground;
-  color: white;
-  font-weight: bold;
-  padding: 10px;
-
-  width: @badgeSize;
-  left: @badgeLeftMargin;
-
-  hr {
-    margin: 2px 3px 10px;
-    border-color: rgba(0, 0, 0, 0.3);
-  }
-}
-
-.main-badge {
-  font-size: @badgeTextSize;
-}
-
-.sale-badge {
-  bottom: 0;
+@font-face {
+  font-family: primaryFont;
+  src: url("../fonts/AvenirNextLTPro-Regular.otf");
 }
 
 @import "pizza/pizza-card";
+@import "badge";
+@import "header";
+@import "pizzas-navbar";
+@import "cart";

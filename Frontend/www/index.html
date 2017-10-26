@@ -12,97 +12,161 @@
     <!-- LESS JavaScript компілятор -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 
-
 </head>
 <body>
-<div id="cart"></div>
 
-<div class="container-fluid header">
-
-    <div class="info-badge main-badge text-center">
-        PIZZA<br>
-        KMA
-    </div>
-
-    <div class="row main-row">
-        <div class="row first-row">
-            <div class="col-sm-2">
-                (044) 222 5 222
-            </div>
-            <div class="col-sm-3">
-                24 години 7 днів на тиждень
-            </div>
-            <div class="col-sm-3">
-                Безкоштовна доставка піци
-            </div>
-        </div>
-        <hr class="row">
-        <div class="row">
-            <div class="col-sm-3">
-                Піца
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<div class="text-center all-pizzas">
-    Усі піци
-</div>
-
-<div class="container">
-    <div class="row" id="pizza_list">
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail pizza-card">
-                <span class="label label-danger state">Нова</span>
-
-                <img src="assets/images/pizza_1.jpg">
-
-                <div class="caption">
-                    <h3 class="name">Імпреза</h3>
-
-                    <p class="type">М'ясна піца</p>
-                    <p class="ingredients">Балик, салямі, куриця, сир моцарелла, сир рокфорд, ананаси, томатна паста, петрушка</p>
-                </div>
-
-                <div class="buy-columns">
-                    <div class="col-xs-6 left text-center">
-                        <div class="diameter"><img src="assets/images/size-icon.svg"/> 30</div>
-                        <div class="mass"><img src="assets/images/weight.svg"/> 370</div>
-                        <div class="price">99</div>
-                        <div class="currency">грн.</div>
-                        <button type="button" class="btn buy-small">Купити</button>
-                    </div>
-                    <div class="col-xs-6 right text-center">
-                        <div class="diameter"><img src="assets/images/size-icon.svg"/> 40</div>
-                        <div class="mass"><img src="assets/images/weight.svg"/> 660</div>
-                        <div class="price">169</div>
-                        <div class="currency">грн.</div>
-                        <button type="button" class="btn buy-large">Купити</button>
-                    </div>
-                </div>
-
-                <span class="clearfix"/>
-
-            </div>
+<div class="discount-badge top-badge">
+    <div class="content">
+        <div class="border"></div>
+        <div class="text">
+            PIZZA<br>
+            KMA
         </div>
     </div>
 </div>
 
-<div class="info-badge sale-badge text-center">
-    ЦЬОГО<br>
-    ТИЖНЯ<br>
-    НА ВСЕ<br>
+
+<div class="header">
+    <div class="first-row">
+        <div class="info-part phone">
+            (044) 222 5 222
+        </div>
+        <div class="info-part time">
+            24 години 7 днів на тиждень
+        </div>
+        <div class="info-part free">
+            Безкоштовна доставка піци
+        </div>
+        <div class="btn-holder">
+            <button class="btn btn-warning log-in">
+                Ввійти
+            </button>
+        </div>
+    </div>
     <hr>
-    -20%
+    <div class="second-row">
+        <div class="info-part pizza">
+            Піца
+        </div>
+    </div>
 </div>
+
+<div class="container-fluid left-panel">
+    <div class="all-pizzas-text">
+        Усі піци
+        <span class="cnt">
+        8
+    </span>
+    </div>
+
+    <div class="types-buttons" data-toggle="buttons">
+        <label class="btn btn-default active">
+            <input type="Radio" name="types" checked>Усі</input>
+        </label>
+        <label class="btn btn-default">
+            <input type="Radio" name="types">Мясні</input>
+        </label>
+        <label class="btn btn-default">
+            <input type="Radio" name="types">З ананасами</input>
+        </label>
+        <label class="btn btn-default">
+            <input type="Radio" name="types">З грибами</input>
+        </label>
+        <label class="btn btn-default">
+            <input type="Radio" name="types">З морепродуктами</input>
+        </label>
+        <label class="btn btn-default">
+            <input type="Radio" name="types">Вега</input>
+        </label>
+    </div>
+
+    <!-- Container with pizzas -->
+    <div class="container">
+        <div class="row" id="pizza_list">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail pizza-card">
+                    <span class="label label-danger state">Нова</span>
+
+                    <img src="assets/images/pizza_1.png">
+
+                    <div class="caption">
+                        <h3 class="name">Імпреза</h3>
+
+                        <p class="type">М'ясна піца</p>
+                        <p class="ingredients">Балик, салямі, куриця, сир моцарелла, сир рокфорд, ананаси, томатна паста, петрушка</p>
+                    </div>
+
+                    <div class="buy-columns">
+                        <div class="col-xs-6 left text-center">
+                            <div class="diameter"><img src="assets/images/size-icon.svg"/> 30</div>
+                            <div class="mass"><img src="assets/images/weight.svg"/> 370</div>
+                            <div class="price">99</div>
+                            <div class="currency">грн.</div>
+                            <button type="button" class="btn buy-small">Купити</button>
+                        </div>
+                        <div class="col-xs-6 right text-center">
+                            <div class="diameter"><img src="assets/images/size-icon.svg"/> 40</div>
+                            <div class="mass"><img src="assets/images/weight.svg"/> 660</div>
+                            <div class="price">169</div>
+                            <div class="currency">грн.</div>
+                            <button type="button" class="btn buy-large">Купити</button>
+                        </div>
+                    </div>
+
+                    <span class="clearfix"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container cart">
+    <div class="order">
+        <div class="content">
+            <span class="order-text">
+                Замовлення
+            </span>
+            <span class="order-cnt">
+                1
+            </span>
+            <span class="order-clear">
+                Очистити замовлення
+            </span>
+        </div>
+    </div>
+    Корзина<br>
+    Корзина<br>
+    Корзина<br>
+    Корзина<br>
+    Корзина<br>
+    Корзина<br>
+    Корзина<br>
+    Корзина<br>
+    Корзина<br>
+    Корзина<br>
+    Корзина<br>
+</div>
+
+<div class="discount-badge bottom-badge">
+    <div class="content">
+        <div class="border"></div>
+        <div class="text">
+            ЦЬОГО<br>
+            ТИЖНЯ<br>
+            НА ВСЕ<br>
+            <hr>
+            -20%
+        </div>
+    </div>
+</div>
+
+
 
 <!-- jQuery JavaScript -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
-
 <!--Bootsrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
 <!--Own JavaScript -->
 <!--<script type="text/javascript"  src="assets/js/main.js"> </script>-->
 </body>
