@@ -25,15 +25,26 @@ body {
   }
 }
 
-.circular(@radius, @textColor, @backgroundColor) {
-  color: @textColor;
-  background-color: @backgroundColor;
+.btn-circular(@radius, @textSize) {
+  width: @radius;
+  height: @radius;
+  padding: 6px 0;
+  font-size: @textSize;
+  line-height: 0;
+  border-radius: 15px;
+}
+.circular(@radius) {
   text-align: center;
   display: inline-block;
   width: @radius;
   height: @radius;
-  border-radius: 50%;
+  border-radius: @radius/2;
   font-size: @radius*0.5/0.65;
+}
+.circular(@radius, @textColor, @backgroundColor) {
+  background-color: @backgroundColor;
+  color: @textColor;
+  .circular(@radius: @radius);
 }
 
 .container {
@@ -45,7 +56,7 @@ body {
   padding-left: @badgeWidth+@badgeMargin;
   padding-right: @cartWidth+3*@badgeMargin;
 
-  min-width: @cartWidth+300px;
+  min-width: @cartWidth+320px;
   @media screen {
     @media (max-width: (960px + @cartWidth)) {
       padding-left: 0;
@@ -64,7 +75,8 @@ body {
   src: url("../fonts/AvenirNextLTPro-Regular.otf");
 }
 
-@import "pizza/pizza-card";
+@import "pizza/pizza-menu";
+@import "pizza/pizza-cart";
 @import "badge";
 @import "header";
 @import "pizzas-navbar";

@@ -1,54 +1,61 @@
-/**
- * Created by chaika on 02.02.16.
- */
 var Templates = require('../Templates');
 var PizzaCart = require('./PizzaCart');
-var Pizza_List = require('../Pizza_List');
+/** @type {Array} */
+var Pizza_List = require('../Pizza_List');  //type: Array
+
+String.prototype.contains = function(another) {
+    return this.toLowerCase().indexOf(another.toLowerCase()) !== -1;
+};
 
 //HTML едемент куди будуть додаватися піци
 var $pizza_list = $("#pizza_list");
 
 function showPizzaList(list) {
-    //Очищаємо старі піци в кошику
+    //Очищаємо старі піци в меню
     $pizza_list.html("");
-
     //Онволення однієї піци
     function showOnePizza(pizza) {
         var html_code = Templates.PizzaMenu_OneItem({pizza: pizza});
-
         var $node = $(html_code);
-
         $node.find(".buy-big").click(function(){
             PizzaCart.addToCart(pizza, PizzaCart.PizzaSize.Big);
         });
         $node.find(".buy-small").click(function(){
             PizzaCart.addToCart(pizza, PizzaCart.PizzaSize.Small);
         });
-
         $pizza_list.append($node);
     }
-
     list.forEach(showOnePizza);
 }
 
 function filterPizza(filter) {
     //Масив куди потраплять піци які треба показати
     var pizza_shown = [];
-
-    Pizza_List.forEach(function(pizza){
-        //Якщо піка відповідає фільтру
-        //pizza_shown.push(pizza);
-
-        //TODO: зробити фільтри
+    Pizza_List.forEach(function(pizza) {
+        if (
+            (filter === "" || filter.contains("усі")) ||
+            (filter.contains("м'ясні") && pizza.type.contains("м’ясна")) ||
+            (filter.contains("вега") && pizza.type.contains("вега")) ||
+            (filter.contains("з ананасами") && pizza.content.pineapple) ||
+            (filter.contains("з грибами") && pizza.content.mushroom) ||
+            (filter.contains("з морепродуктами") && pizza.content.ocean)
+        ) {
+            pizza_shown.push(pizza)
+        }
     });
-
     //Показати відфільтровані піци
     showPizzaList(pizza_shown);
 }
 
 function initialiseMenu() {
-    //Показуємо усі піци
-    showPizzaList(Pizza_List)
+    var $menu_bar = $("#menu-bar");
+    $menu_bar.on({
+        "change": function() {
+            filterPizza($menu_bar.find(".active").text())
+        }
+    });
+    //усі
+    filterPizza("")
 }
 
 exports.filterPizza = filterPizza;

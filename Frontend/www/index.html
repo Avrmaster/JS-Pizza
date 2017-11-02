@@ -58,12 +58,12 @@
     </span>
     </div>
 
-    <div class="types-buttons" data-toggle="buttons">
+    <div id="menu-bar" class="types-buttons" data-toggle="buttons">
         <label class="btn btn-default active">
             <input type="Radio" name="types" checked>Усі
         </label>
         <label class="btn btn-default">
-            <input type="Radio" name="types">Мясні
+            <input type="Radio" name="types">М'ясні
         </label>
         <label class="btn btn-default">
             <input type="Radio" name="types">З ананасами
@@ -83,7 +83,7 @@
     <div class="container-fluid pizza-container">
         <div class="row" id="pizza_list">
 
-            <!-- Here may have been your pizzas! Just call 12567465 -->
+            <!-- Here may have been your pizzas! Just call +380971234321 xD -->
 
         </div>
     </div>
@@ -97,23 +97,29 @@
                 <span class="order-text">
                     <b>Замовлення</b>
                 </span>
-                <span class="order-cnt">
+                <span id="order-cnt" class="order-cnt">
                     0
                 </span>
             </div>
             <div class="order-clear-wrap">
-                <span class="order-clear">
+                <span id="order-clear-btn" class="order-clear">
                     Очистити замовлення
                 </span>
             </div>
         </div>
     </div>
 
-    <div class="order">
-        Пусто в ходильнику?<br>
-        Замовте піцу!
+    <div class="cart-list-holder" >
+        <div class="emptyPhr" id='emptyPhr'>
+            Пусто в ходильнику?<br>
+            Замовте піцу!
+        </div>
+        <div class="cart-list" id="cart-list">
+
+        </div>
     </div>
 
+    <span id="order-price" class="order-price"><b>Сума замовлення: 0</b></span>
     <div class="order-btn-holder">
         <button class="btn btn-success disabled">
             Замовити
@@ -136,8 +142,7 @@
 </div>
 
 
-
- jQuery JavaScript
+<!--jQuery JavaScript-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
 <!--Bootsrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

@@ -1,7 +1,6 @@
 <!--
 input object:
 pizza:  {
-
             id:1,
             icon:'assets/images/pizza_7.jpg',
             title: "Імпреза",
@@ -53,7 +52,7 @@ function getBuyColumnClass(pizza) {
         <span class="label label-success state">Популярна</span>
         <%}%>
 
-        <img class="mainImg" src="<%=pizza.icon%>">
+        <img class="mainImg" src="<%=pizza.icon%>"/>
 
         <div class="caption">
             <h3 class="name"><%=pizza.title%></h3>
@@ -78,7 +77,7 @@ function getBuyColumnClass(pizza) {
                     <%=pizza.small_size.price%>
                 </div>
                 <div class="currency">грн.</div>
-                <button type="button" class="btn buy-large">Купити</button>
+                <button type="button" class="btn buy-small">Купити</button>
             </div>
             <%}%>
 
@@ -94,7 +93,7 @@ function getBuyColumnClass(pizza) {
                     <%=pizza.big_size.price%>
                 </div>
                 <div class="currency">грн.</div>
-                <button type="button" class="btn buy-large">Купити</button>
+                <button type="button" class="btn buy-big">Купити</button>
             </div>
             <%}%>
 
