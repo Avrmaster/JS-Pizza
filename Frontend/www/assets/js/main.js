@@ -331,6 +331,7 @@ function updateCart(to_slide_down) {
 
     Storage.set(CART_KEY, Cart);
 
+    //TODO
     $order_price.html("<b>Сума замовлення: <span style='float: right;'>"+orderPrice+"грн"+"</span></b>");
     $order_cnt.text(itemsCount);
     if (Cart.length === 0) {
