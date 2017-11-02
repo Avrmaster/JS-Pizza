@@ -42,8 +42,16 @@ body {
 
 .left-panel {
   padding-top: @badgeMargin;
-  padding-right: @cartWidth+@badgeMargin;
   padding-left: @badgeWidth+@badgeMargin;
+  padding-right: @cartWidth+3*@badgeMargin;
+
+  min-width: @cartWidth+300px;
+  @media screen {
+    @media (max-width: (960px + @cartWidth)) {
+      padding-left: 0;
+    }
+  }
+
 }
 
 .pizza-container {
