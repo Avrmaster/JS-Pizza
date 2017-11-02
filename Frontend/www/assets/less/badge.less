@@ -11,6 +11,7 @@
   box-sizing: border-box;
   width: @badgeWidth;
   min-height: @badgeHeight;
+  z-index: 6; //on top of the header
 
   background: @badgeBackground;
   position:fixed;
@@ -45,7 +46,6 @@
     top: @badgeHeight;
     transform: scaleY(-1);
   }
-  z-index: 1;
 }
 
 .bottom-badge {

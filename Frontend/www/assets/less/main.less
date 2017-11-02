@@ -37,12 +37,17 @@ body {
 }
 
 .container {
-  padding: 20px;
+  padding: 0;
 }
 
 .left-panel {
-  min-width: 240px + @cartWidth;
-  padding-right: @cartWidth;
+  padding-top: @badgeMargin;
+  padding-right: @cartWidth+@badgeMargin;
+  padding-left: @badgeWidth+@badgeMargin;
+}
+
+.pizza-container {
+  padding-top: @badgeMargin;
 }
 
 

@@ -1,6 +1,7 @@
 /**
  * Created by Andriy on 10.03.2015.
  */
+
 module.exports = function(grunt) {
     //Налаштування збірки Grunt
     var config = {
@@ -8,22 +9,22 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         //Конфігурація для модуля browserify (перетворює require(..) в код
-        browserify:     {
+        browserify: {
             //Загальні налаштування (grunt-browserify)
-            options:      {
+            options: {
 
                 //brfs замість fs.readFileSync вставляє вміст файлу
                 transform:  [ require('brfs') ],
                 browserifyOptions: {
                     //Папка з корнем джерельних кодів javascript
                     basedir: "Frontend/src/js/"
-                }
+                },
+                livereload: true
             },
-
             //Збірка з назвою піца
             pizza: {
-                src:        'Frontend/src/main.js',
-                dest:       'Frontend/www/assets/js/main.js'
+                src: 'Frontend/src/main.js',
+                dest: 'Frontend/www/assets/js/main.js'
             }
         }
     };
@@ -55,7 +56,7 @@ module.exports = function(grunt) {
     //Список завданнь по замовчування
     grunt.registerTask('default',
         [
-            'browserify:pizza',
+            'browserify:pizza'
             //Інші завдання які необхідно виконати
         ]
     );
