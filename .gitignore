@@ -1,2 +1,5 @@
 node_modules/
 .idea/
+Frontend/www/assets/fonts/
+Frontend/www/assets/images/Thumbs.db
+package-lock.json
