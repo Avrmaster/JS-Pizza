@@ -221,6 +221,7 @@ var $cart = $("#cart-list");
 var $order_cnt = $("#order-cnt");
 var $order_price = $("#order-price");
 var $emptyPhr = $("#emptyPhr");
+var $order_btn = $("#order-btn");
 $("#order-clear-btn").click(function() {
     Cart.forEach(function (el) {
         removeFromCart(el);
@@ -337,11 +338,12 @@ function updateCart(to_slide_down) {
     if (Cart.length === 0) {
         $emptyPhr.slideDown();
         $order_price.slideUp();
+        $order_btn.addClass("disabled");
     } else {
         $emptyPhr.slideUp();
         $order_price.slideDown();
+        $order_btn.removeClass("disabled");
     }
-
 }
 
 exports.removeFromCart = removeFromCart;
@@ -363,6 +365,8 @@ String.prototype.contains = function(another) {
 
 //HTML едемент куди будуть додаватися піци
 var $pizza_list = $("#pizza_list");
+var $filter_name = $("#filter-name");
+var $filter_pizza_count = $("#filter-pizza-cnt");
 
 function showPizzaList(list) {
     //Очищаємо старі піци в меню
@@ -398,6 +402,10 @@ function filterPizza(filter) {
         }
     });
     //Показати відфільтровані піци
+    // console.log(""+filter);
+    if (filter.length > 0)
+        $filter_name.text(filter);
+    $filter_pizza_count.text(pizza_shown.length);
     showPizzaList(pizza_shown);
 }
 
@@ -409,7 +417,7 @@ function initialiseMenu() {
         }
     });
     //усі
-    filterPizza("")
+    filterPizza("Усі")
 }
 
 exports.filterPizza = filterPizza;

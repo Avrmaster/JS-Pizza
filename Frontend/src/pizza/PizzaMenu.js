@@ -9,6 +9,8 @@ String.prototype.contains = function(another) {
 
 //HTML едемент куди будуть додаватися піци
 var $pizza_list = $("#pizza_list");
+var $filter_name = $("#filter-name");
+var $filter_pizza_count = $("#filter-pizza-cnt");
 
 function showPizzaList(list) {
     //Очищаємо старі піци в меню
@@ -44,6 +46,10 @@ function filterPizza(filter) {
         }
     });
     //Показати відфільтровані піци
+    // console.log(""+filter);
+    if (filter.length > 0)
+        $filter_name.text(filter);
+    $filter_pizza_count.text(pizza_shown.length);
     showPizzaList(pizza_shown);
 }
 
@@ -55,7 +61,7 @@ function initialiseMenu() {
         }
     });
     //усі
-    filterPizza("")
+    filterPizza("Усі")
 }
 
 exports.filterPizza = filterPizza;

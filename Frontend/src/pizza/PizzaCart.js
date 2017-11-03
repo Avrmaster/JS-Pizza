@@ -29,6 +29,7 @@ var $cart = $("#cart-list");
 var $order_cnt = $("#order-cnt");
 var $order_price = $("#order-price");
 var $emptyPhr = $("#emptyPhr");
+var $order_btn = $("#order-btn");
 $("#order-clear-btn").click(function() {
     Cart.forEach(function (el) {
         removeFromCart(el);
@@ -145,11 +146,12 @@ function updateCart(to_slide_down) {
     if (Cart.length === 0) {
         $emptyPhr.slideDown();
         $order_price.slideUp();
+        $order_btn.addClass("disabled");
     } else {
         $emptyPhr.slideUp();
         $order_price.slideDown();
+        $order_btn.removeClass("disabled");
     }
-
 }
 
 exports.removeFromCart = removeFromCart;

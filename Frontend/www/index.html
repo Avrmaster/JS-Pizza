@@ -52,10 +52,8 @@
 
 <div class="container-fluid left-panel">
     <div class="all-pizzas-text">
-        Усі піци
-        <span class="cnt">
-        8
-    </span>
+        <span id="filter-name">Усі піци</span>
+        <span id="filter-pizza-cnt" class="cnt">8</span>
     </div>
 
     <div id="menu-bar" class="types-buttons" data-toggle="buttons">
@@ -109,21 +107,23 @@
         </div>
     </div>
 
-    <div class="cart-list-holder" >
-        <div class="emptyPhr" id='emptyPhr'>
-            Пусто в ходильнику?<br>
-            Замовте піцу!
-        </div>
-        <div class="cart-list" id="cart-list">
+    <div class="cart-order-holder">
+        <div class="cart-list-holder" >
+            <div class="emptyPhr" id='emptyPhr'>
+                Пусто в ходильнику?<br>
+                Замовте піцу!
+            </div>
+            <div class="cart-list" id="cart-list">
 
+            </div>
         </div>
-    </div>
 
-    <span id="order-price" class="order-price"><b>Сума замовлення: 0</b></span>
-    <div class="order-btn-holder">
-        <button class="btn btn-success disabled">
-            Замовити
-        </button>
+        <div class="order-btn-holder">
+            <span id="order-price" class="order-price"><b>Сума замовлення: 0</b></span>
+            <button id="order-btn" class="btn btn-success disabled">
+                Замовити
+            </button>
+        </div>
     </div>
 
 </div>
