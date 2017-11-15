@@ -11,12 +11,14 @@
     background-color: @activeBackgroundColor;
     color: @activeTextColor;
     border: none;
+    outline: none;
   }
   :active, :active:not(active), :hover:not(active), :active:hover {
     //Believe me, all of these selectors are necessary
     background-color: transparent;
     border: none;
     box-shadow: none;
+    outline: none;
   }
   label {
     font-size: @itemsTextSize;

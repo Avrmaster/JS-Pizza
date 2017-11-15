@@ -1,7 +1,14 @@
 var Templates = require('../Templates');
 var PizzaCart = require('./PizzaCart');
 /** @type {Array} */
-var Pizza_List = require('../Pizza_List');  //type: Array
+var server_api = require("../Server_API")
+var Pizza_List = [];
+server_api.getPizzaList(function(error, pizzas) {
+    if (!error && pizzas) {
+        Pizza_List = pizzas;
+        filterPizza("");
+    }
+});
 
 String.prototype.contains = function(another) {
     return this.toLowerCase().indexOf(another.toLowerCase()) !== -1;
@@ -47,8 +54,11 @@ function filterPizza(filter) {
     });
     //Показати відфільтровані піци
     // console.log(""+filter);
-    if (filter.length > 0)
-        $filter_name.text(filter);
+    if (filter.length > 0) {
+        $filter_name.text(filter + (filter.contains("усі")? " піци" : ""));
+        // $filter_name.text(filter);
+    }
+
     $filter_pizza_count.text(pizza_shown.length);
     showPizzaList(pizza_shown);
 }
@@ -61,7 +71,7 @@ function initialiseMenu() {
         }
     });
     //усі
-    filterPizza("Усі")
+    filterPizza("Усі");
 }
 
 exports.filterPizza = filterPizza;

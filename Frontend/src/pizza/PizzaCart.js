@@ -1,10 +1,10 @@
 String.prototype.hashCode = function() {
     var hash = 0;
     if (this.length === 0) return hash;
-    for (i = 0; i < this.length; i++) {
+    for (var i = 0; i < this.length; i++) {
         var char = this.charCodeAt(i);
-        hash = ((hash<<5)-hash)+char;
-        hash = hash & hash; // Convert to 32bit integer
+        hash = 37*hash+char; // Convert to 32bit integer
+        hash = hash & hash;
     }
     return hash;
 };
@@ -30,6 +30,17 @@ var $order_cnt = $("#order-cnt");
 var $order_price = $("#order-price");
 var $emptyPhr = $("#emptyPhr");
 var $order_btn = $("#order-btn");
+
+$order_btn.click(function() {
+    if (!$order_btn.hasClass("disabled")) {
+        window.location.href = "order.html"
+    }
+});
+$("#edit-btn").click(function () {
+    window.location.href = "index.html";
+});
+
+
 $("#order-clear-btn").click(function() {
     Cart.forEach(function (el) {
         removeFromCart(el);
@@ -51,7 +62,8 @@ function addToCart(pizza, size, quantity) {
         diameter: pizza[size].size,
         size: size,
         size_name: size === "small_size"? "Мала" : "Велика",
-        quantity: quantity? quantity : 1
+        quantity: quantity? quantity : 1,
+        editable: !window.location.href.contains("order")
     };
     to_push.id = getId(to_push);
 
@@ -140,7 +152,6 @@ function updateCart(to_slide_down) {
 
     Storage.set(CART_KEY, Cart);
 
-    //TODO
     $order_price.html("<b>Сума замовлення: <span style='float: right;'>"+orderPrice+"грн"+"</span></b>");
     $order_cnt.text(itemsCount);
     if (Cart.length === 0) {

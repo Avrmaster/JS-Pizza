@@ -10,6 +10,12 @@
 @cartOrderButtonSize: 25px;
 @cartShadowColor: #bebebe;
 
+
+@cartEditTextColor: black;
+//used for gradient in edit button
+@cartEditColor1: @cartBackground2;
+@cartEditColor2: @cartShadowColor;
+
 .cart {
   position: fixed;
   right: 0;
@@ -50,42 +56,47 @@
     }
   }
 
-  .cart-order-holder {
+
+  display: flex;
+  flex-direction: column;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+
+  height: 100%;
+
+  .cart-list-holder {
+    font-size: @cartOrderFontSize;
     width: 100%;
     height: 100%;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 
-    .order-btn-holder {
-      text-align: center;
-      position: absolute;
-      padding: @cartOrderButtonSize;
-      bottom: 0;
+  .order-btn-holder {
+    text-align: center;
+
+    padding: @cartOrderButtonSize;
+    width: 100%;
+    background-color: @cartBackground2;
+
+    button {
+      border: none;
       width: 100%;
-      background-color: @cartBackground2;
-
-      button {
-        border: none;
-        width: 100%;
+      background-color: @primaryColor;
+      font-size: @cartOrderButtonSize;
+      border-radius: @cartOrderButtonSize*0.25;
+      &:hover, &:focus {
+        outline: none;
         background-color: @primaryColor;
-        font-size: @cartOrderButtonSize;
-        border-radius: @cartOrderButtonSize*0.25;
-        &:hover, &:focus {
-          outline: none;
-          background-color: @primaryColor;
-        }
       }
     }
 
-    .cart-list-holder {
-      font-size: @cartOrderFontSize;
-
-      //TODO
-      width: 100%;
-      height: 66.66%;
-
-      text-align: center;
-      overflow-y: auto;
-      overflow-x: hidden;
+    .edit {
+      color: @cartEditTextColor;
+      background: linear-gradient(@cartEditColor1, @cartEditColor2);
     }
+
   }
 
   .emptyPhr {

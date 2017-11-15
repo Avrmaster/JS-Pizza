@@ -1,0 +1,27 @@
+@footerColor: #ffffff;
+@footerHeight: 100px;
+@footerPadding: @footerHeight*0.1;
+@footerTextSize: 16px;
+
+@import "cart";
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.footer {
+  background-color: @footerColor;
+  width: 100%;
+  height: @footerHeight;
+  padding: @footerPadding @footerPadding+@cartWidth @footerPadding @footerPadding;
+
+  border: solid rgba(1, 1, 1, 0.05);
+
+  font-size: @footerTextSize;
+  text-align: center;
+
+
+  position: absolute;
+  bottom: 0;
+}

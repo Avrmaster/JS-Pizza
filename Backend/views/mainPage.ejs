@@ -1,0 +1,43 @@
+<% include common/header.ejs %>
+
+
+<div class="container-fluid left-panel">
+    <div class="all-pizzas-text">
+        <span id="filter-name">Усі піци</span>
+        <span id="filter-pizza-cnt" class="cnt">0</span>
+    </div>
+
+    <div id="menu-bar" class="types-buttons" data-toggle="buttons">
+        <label class="btn btn-default active">
+            <input type="Radio" name="types" checked>Усі
+        </label>
+        <label class="btn btn-default">
+            <input type="Radio" name="types">М'ясні
+        </label>
+        <label class="btn btn-default">
+            <input type="Radio" name="types">З ананасами
+        </label>
+        <label class="btn btn-default">
+            <input type="Radio" name="types">З грибами
+        </label>
+        <label class="btn btn-default">
+            <input type="Radio" name="types">З морепродуктами
+        </label>
+        <label class="btn btn-default">
+            <input type="Radio" name="types">Вега
+        </label>
+    </div>
+
+    <!-- Container with pizzas -->
+    <div class="container-fluid pizza-container">
+        <div class="row" id="pizza_list">
+
+            <!-- Here may have been your pizzas! Just call +380971234321 xD -->
+
+        </div>
+    </div>
+
+</div>
+
+<% include common/cart.ejs %>
+<% include common/footer.ejs %>

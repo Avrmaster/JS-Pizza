@@ -1,3 +1,7 @@
+/**
+ * Created by diana on 12.01.16.
+ */
+
 var pizza_info = [
     {
         id:1,
@@ -68,8 +72,7 @@ var pizza_info = [
             weight: 780,
             size: 40,
             price: 179
-        },
-        is_new:true
+        }
     },
     {
         id:4,

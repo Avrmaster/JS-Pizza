@@ -5,18 +5,22 @@
     </span>
 
     <div class="diameter-mass">
-        <img class="sizeImg" src="../www/assets/images/size-icon.svg"/>
+        <img class="sizeImg" src="../assets/images/size-icon.svg"/>
         <%=diameter%>
-        <img class="weightImg" src="../www/assets/images/weight.svg"/>
+        <img class="weightImg" src="../assets/images/weight.svg"/>
         <%=weight%>
     </div>
 
     <div class="cart-buttons-holder">
         <b><%= price %> грн.</b>
+        <% if (editable) { %>
         <button class="btn btn-danger minus"><b>-</b></button>
+        <% } %>
         <span class="label label-default quantity"><%= quantity %></span>
+        <% if (editable) { %>
         <button class="btn btn-success plus"><b>+</b></button>
         <button class="btn btn-default delete"><b>x</b></button>
+        <% } %>
     </div>
 
     <img class="preview-img" src="<%=pizza.icon%>"/>

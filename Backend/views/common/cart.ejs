@@ -1,0 +1,46 @@
+
+<div class="container cart">
+    <div class="order-state">
+        <div class="content">
+            <div class="order-cnt-wrap">
+                <span class="order-text">
+                    <b>Замовлення</b>
+                </span>
+                <span id="order-cnt" class="order-cnt">
+                    0
+                </span>
+            </div>
+            <div class="order-clear-wrap">
+                <% if (!forbidCartEdit) {%>
+                <span id="order-clear-btn" class="order-clear">
+                    Очистити замовлення
+                </span>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-list-holder" >
+        <div class="emptyPhr" id='emptyPhr'>
+            Пусто в ходильнику?<br>
+            Замовте піцу!
+        </div>
+        <div class="cart-list" id="cart-list">
+
+        </div>
+    </div>
+
+    <div class="order-btn-holder">
+        <span id="order-price" class="order-price"><b>Сума замовлення: 0</b></span>
+        <% if (!forbidCartEdit) { %>
+            <button id="order-btn" class="btn btn-success disabled">
+                Замовити
+            </button>
+        <% } else { %>
+            <button id="edit-btn" class="btn btn-success edit">
+                Редагувати замовлення
+            </button>
+        <% } %>
+    </div>
+
+</div>
