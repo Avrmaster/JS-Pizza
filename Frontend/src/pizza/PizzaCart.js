@@ -33,11 +33,11 @@ var $order_btn = $("#order-btn");
 
 $order_btn.click(function() {
     if (!$order_btn.hasClass("disabled")) {
-        window.location.href = "order.html"
+        window.location.assign("order");
     }
 });
 $("#edit-btn").click(function () {
-    window.location.href = "index.html";
+    window.location.assign("/"); //main
 });
 
 
