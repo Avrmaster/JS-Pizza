@@ -1,32 +1,3 @@
-<!--
-input object:
-pizza:  {
-            id:1,
-            icon:'assets/images/pizza_7.jpg',
-            title: "Імпреза",
-            type: 'М’ясна піца',
-            content: {
-                meat: ['балик', 'салямі'],
-                chicken: ['куриця'],
-                cheese: ['сир моцарелла', 'сир рокфорд'],
-                pineapple: ['ананаси'],
-                additional: ['томатна паста', 'петрушка']
-            },
-            small_size:{
-                weight: 370,
-                size: 30,
-                price: 99
-            },
-            big_size:{
-                weight: 660,
-                size: 40,
-                price: 169
-            },
-            is_new:true,
-            is_popular:true
-        }
--->
-
 <%
 function getIngredientsArray(pizza) {
     var content = pizza.content;
@@ -36,8 +7,6 @@ function getIngredientsArray(pizza) {
     });
     return result;
 }
-%>
-<%
 function getBuyColumnClass(pizza) {
     return "right text-center " + (pizza.big_size && pizza.small_size? "col-xs-6" : "col-xs-12")
 }
@@ -67,10 +36,10 @@ function getBuyColumnClass(pizza) {
 
             <%if (pizza.small_size) {%>
             <div class="<%=getBuyColumnClass(pizza)%>">
-                <div class="diameter"><img src="../www/assets/images/size-icon.svg"/>
+                <div class="diameter"><img src="../assets/images/size-icon.svg"/>
                     <%=pizza.small_size.size%>
                 </div>
-                <div class="mass"><img src="../www/assets/images/weight.svg"/>
+                <div class="mass"><img src="../assets/images/weight.svg"/>
                     <%=pizza.small_size.weight%>
                 </div>
                 <div class="price">
@@ -83,10 +52,10 @@ function getBuyColumnClass(pizza) {
 
             <%if (pizza.big_size) {%>
             <div class="<%=getBuyColumnClass(pizza)%>">
-                <div class="diameter"><img src="../www/assets/images/size-icon.svg"/>
+                <div class="diameter"><img src="../assets/images/size-icon.svg"/>
                     <%=pizza.big_size.size%>
                 </div>
-                <div class="mass"><img src="../www/assets/images/weight.svg"/>
+                <div class="mass"><img src="../assets/images/weight.svg"/>
                     <%=pizza.big_size.weight%>
                 </div>
                 <div class="price">

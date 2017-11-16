@@ -1,51 +1,66 @@
 <% include common/header.ejs %>
 
 <div class="container-fluid personal-data-container">
-    <div class="personal-data-label">
-        1. Контактні дані
-    </div>
     <div class="personal-data-holder">
+        <div class="personal-data-label">
+            1. Контактні дані
+        </div>
         <form class="form-horizontal personal-data-left col-xs-6">
             <div class="form-group">
-                <label for="name" class="col-sm-2">
+                <label for="name-input" class="col-sm-2">
                     Ім'я:
                 </label>
                 <div class="col-sm-9">
-                    <input placeholder="Ім'я та прізвище" class="form-control col-sm-9" id="name"/>
+                    <input placeholder="Ім'я та прізвище"
+                           class="form-control col-sm-9" id="name-input"/>
+                    <div class="warning"></div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="phone" class="col-sm-2">
+                <label for="phone-input" class="col-sm-2">
                     Телефон:
                 </label>
                 <div class="col-sm-9">
-                    <input placeholder="Номер телефону" class="form-control col-sm-9" id="phone"/>
+                    <input placeholder="Номер телефону"
+                           class="form-control col-sm-9" id="phone-input"/>
+                    <div class="warning"></div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="address" class="col-sm-2">
+                <label for="address-input" class="col-sm-2">
                     Адреса:
                 </label>
                 <div class="col-sm-9">
-                    <input placeholder="Адреса" class="form-control col-sm-9" id="address"/>
+                    <input placeholder="Адреса"
+                           class="form-control col-sm-9" id="address-input"/>
+                    <div class="warning"></div>
                 </div>
             </div>
         </form>
         <div class="personal-data-right col-xs-6">
             <div>
-                <span>
+                <span class="delivery-info">
                     Інформація про замовлення
                 </span>
                 <br>
-                <span>
+                <span class="delivery-time">
                     <b>Приблизний час доставки:</b> невідомий
                 </span>
                 <br>
-                <span>
+                <span class="delivery-address">
                     <b>Адреса доставки:</b> невідома
                 </span>
             </div>
         </div>
+
+        <button class="proceed-btn btn" id="order-proceed-btn">
+            Далі
+        </button>
+
+        <div class="map-holder col-lg-12">
+            Map
+        </div>
+
     </div>
 </div>
 

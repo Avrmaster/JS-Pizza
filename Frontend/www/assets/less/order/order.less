@@ -5,7 +5,9 @@
 @orderTextColor: black;
 @orderTextSize: 20px;
 @orderInfoBackColor: white;
-@orderInfoHeight: 140px;
+@orderInfoHeight: 145px;
+@orderWarnColor: red;
+@orderMapHeight: 250px;
 
 .personal-data-container {
   padding: @headerHeight+50px 0 0;
@@ -16,7 +18,7 @@
   }
 
   .personal-data-holder {
-    margin: 0 @cartWidth+30px 0 30px;
+    margin: 0 @cartWidth+100px 0 100px;
     color: @orderTextColor;
     font-size: @orderTextSize;
 
@@ -26,9 +28,13 @@
       padding: 0;
 
       @media screen {
-        @media (max-width: 1100px) {
+        @media (max-width: 1240px) {
           width: 100%;
           display: block;
+          //input {
+          //
+          //  float: right;
+          //}
         }
       }
     }
@@ -41,21 +47,40 @@
         padding: 0;
         vertical-align: middle;
 
+        text-align: right;
+        @media screen {
+          @media (max-width: 1000px) {
+            text-align: left;
+          }
+        }
+
         label {
           width: @orderInputLabelWidth;
-          text-align: right;
           padding: 0;
         }
+
+        div {
+          padding-right: 0;
+        }
+
+        .warning {
+          color: @orderWarnColor;
+          padding: 0 10px;
+          text-align: left;
+          font-size: @orderTextSize*0.6;
+        }
+
       }
     }
 
     .personal-data-right {
       padding-left: 30px;
+      border: solid rgba(0, 0, 0, 0.1) 1px;
       border-left: solid @primaryColor 6px;
       background: @orderInfoBackColor;
 
       div {
-        height: @orderInfoHeight;
+        min-height: @orderInfoHeight;
         span {
           display: inline-block;
           margin: (@orderInfoHeight - 3*@orderTextSize)/8-1px;
@@ -63,5 +88,21 @@
         }
       }
     }
+
+    .proceed-btn {
+      float: right;
+      margin: 10px;
+      font-size: @orderTextSize;
+      background-color: @primaryColor;
+      color: @orderInfoBackColor;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .map-holder {
+      background: green;
+      height: @orderMapHeight;
+    }
+
   }
 }
