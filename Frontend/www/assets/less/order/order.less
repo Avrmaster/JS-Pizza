@@ -1,18 +1,67 @@
 @import "../header";
 @import "cart";
 
-.personal-data-holder {
-  margin-top: @headerHeight;
-  padding: 70px 30px;
-  width: 100%;
+@orderInputLabelWidth: 85px;
+@orderTextColor: black;
+@orderTextSize: 20px;
+@orderInfoBackColor: white;
+@orderInfoHeight: 140px;
 
-  .personal-data {
-    padding: 10px @cartWidth 10px 10px;
+.personal-data-container {
+  padding: @headerHeight+50px 0 0;
 
-    input {
-
-    }
-
+  .personal-data-label {
+    font-size: @orderTextSize*1.2;
+    padding: 10px;
   }
 
+  .personal-data-holder {
+    margin: 0 @cartWidth+30px 0 30px;
+    color: @orderTextColor;
+    font-size: @orderTextSize;
+
+    .personal-data-left, .personal-data-right {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+
+      @media screen {
+        @media (max-width: 1100px) {
+          width: 100%;
+          display: block;
+        }
+      }
+    }
+
+    .personal-data-left {
+      display: inline-block;
+
+      .form-group {
+        margin: 0 0 15px;
+        padding: 0;
+        vertical-align: middle;
+
+        label {
+          width: @orderInputLabelWidth;
+          text-align: right;
+          padding: 0;
+        }
+      }
+    }
+
+    .personal-data-right {
+      padding-left: 30px;
+      border-left: solid @primaryColor 6px;
+      background: @orderInfoBackColor;
+
+      div {
+        height: @orderInfoHeight;
+        span {
+          display: inline-block;
+          margin: (@orderInfoHeight - 3*@orderTextSize)/8-1px;
+          padding: 0;
+        }
+      }
+    }
+  }
 }

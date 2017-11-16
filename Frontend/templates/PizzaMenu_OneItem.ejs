@@ -46,10 +46,10 @@ function getBuyColumnClass(pizza) {
 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
     <div class="thumbnail pizza-card">
         <% if (pizza.is_new) {%>
-            <span class="label label-danger state">Нова</span>
+            <span class="field-label label-danger state">Нова</span>
         <%}%>
         <% if (pizza.is_popular) {%>
-        <span class="label label-success state">Популярна</span>
+        <span class="field-label label-success state">Популярна</span>
         <%}%>
 
         <img class="mainImg" src="<%=pizza.icon%>"/>
