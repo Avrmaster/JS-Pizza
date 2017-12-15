@@ -165,6 +165,14 @@ function updateCart(to_slide_down) {
     }
 }
 
+function getPizzaSum() {
+    var sum = 0;
+    Cart.forEach(function (t) {
+        sum += parseInt(t.pizza[t.size].price) * parseInt(t.quantity);
+    });
+    return sum;
+}
+
 exports.removeFromCart = removeFromCart;
 exports.addToCart = addToCart;
 
@@ -172,3 +180,5 @@ exports.getPizzaInCart = getPizzaInCart;
 exports.initialiseCart = initialiseCart;
 
 exports.PizzaSize = PizzaSize;
+
+exports.getPizzaSum = getPizzaSum;

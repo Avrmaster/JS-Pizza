@@ -41,10 +41,10 @@ exports.createOrder = function(order_info, callback) {
 
 var ejs = require('ejs');
 
-exports.PizzaMenu_OneItem = ejs.compile("<%\nfunction getIngredientsArray(pizza) {\n    var content = pizza.content;\n    var result = [];\n    Object.keys(content).forEach(function(key){\n        result = result.concat(content[key]);\n    });\n    return result;\n}\nfunction getBuyColumnClass(pizza) {\n    return \"right text-center \" + (pizza.big_size && pizza.small_size? \"col-xs-6\" : \"col-xs-12\")\n}\n%>\n\n<div class=\"col-xl-4 col-lg-4 col-md-6 col-sm-12\">\n    <div class=\"thumbnail pizza-card\">\n        <% if (pizza.is_new) {%>\n            <span class=\"field-label label-danger state\">Нова</span>\n        <%}%>\n        <% if (pizza.is_popular) {%>\n        <span class=\"field-label label-success state\">Популярна</span>\n        <%}%>\n\n        <img class=\"mainImg\" src=\"<%=pizza.icon%>\"/>\n\n        <div class=\"caption\">\n            <h3 class=\"name\"><%=pizza.title%></h3>\n            <p class=\"type\"><%=pizza.type%></p>\n\n            <p class=\"ingredients\">\n                <%=getIngredientsArray(pizza).join(\", \")%>\n            </p>\n        </div>\n\n        <div class=\"buy-columns\">\n\n            <%if (pizza.small_size) {%>\n            <div class=\"<%=getBuyColumnClass(pizza)%>\">\n                <div class=\"diameter\"><img src=\"../assets/images/size-icon.svg\"/>\n                    <%=pizza.small_size.size%>\n                </div>\n                <div class=\"mass\"><img src=\"../assets/images/weight.svg\"/>\n                    <%=pizza.small_size.weight%>\n                </div>\n                <div class=\"price\">\n                    <%=pizza.small_size.price%>\n                </div>\n                <div class=\"currency\">грн.</div>\n                <button type=\"button\" class=\"btn buy-small\">Купити</button>\n            </div>\n            <%}%>\n\n            <%if (pizza.big_size) {%>\n            <div class=\"<%=getBuyColumnClass(pizza)%>\">\n                <div class=\"diameter\"><img src=\"../assets/images/size-icon.svg\"/>\n                    <%=pizza.big_size.size%>\n                </div>\n                <div class=\"mass\"><img src=\"../assets/images/weight.svg\"/>\n                    <%=pizza.big_size.weight%>\n                </div>\n                <div class=\"price\">\n                    <%=pizza.big_size.price%>\n                </div>\n                <div class=\"currency\">грн.</div>\n                <button type=\"button\" class=\"btn buy-big\">Купити</button>\n            </div>\n            <%}%>\n\n        </div>\n\n        <span class=\"clearfix\"></span>\n    </div>\n</div>\n");
-exports.PizzaCart_OneItem = ejs.compile("<div class=\"pizza-cart-item\">\n\n    <span class=\"title\">\n        <%= pizza.title %> (<%=size_name%>)\n    </span>\n\n    <div class=\"diameter-mass\">\n        <img class=\"sizeImg\" src=\"../assets/images/size-icon.svg\"/>\n        <%=diameter%>\n        <img class=\"weightImg\" src=\"../assets/images/weight.svg\"/>\n        <%=weight%>\n    </div>\n\n    <div class=\"cart-buttons-holder\">\n        <b><%= price %> грн.</b>\n        <% if (editable) { %>\n        <button class=\"btn btn-danger minus\"><b>-</b></button>\n        <% } %>\n        <span class=\"field-label label-default quantity\"><%= quantity %></span>\n        <% if (editable) { %>\n        <button class=\"btn btn-success plus\"><b>+</b></button>\n        <button class=\"btn btn-default delete\"><b>x</b></button>\n        <% } %>\n    </div>\n\n    <img class=\"preview-img\" src=\"<%=pizza.icon%>\"/>\n\n</div>");
+exports.PizzaMenu_OneItem = ejs.compile("<%\r\nfunction getIngredientsArray(pizza) {\r\n    var content = pizza.content;\r\n    var result = [];\r\n    Object.keys(content).forEach(function(key){\r\n        result = result.concat(content[key]);\r\n    });\r\n    return result;\r\n}\r\nfunction getBuyColumnClass(pizza) {\r\n    return \"right text-center \" + (pizza.big_size && pizza.small_size? \"col-xs-6\" : \"col-xs-12\")\r\n}\r\n%>\r\n\r\n<div class=\"col-xl-4 col-lg-4 col-md-6 col-sm-12\">\r\n    <div class=\"thumbnail pizza-card\">\r\n        <% if (pizza.is_new) {%>\r\n            <span class=\"field-label label-danger state\">Нова</span>\r\n        <%}%>\r\n        <% if (pizza.is_popular) {%>\r\n        <span class=\"field-label label-success state\">Популярна</span>\r\n        <%}%>\r\n\r\n        <img class=\"mainImg\" src=\"<%=pizza.icon%>\"/>\r\n\r\n        <div class=\"caption\">\r\n            <h3 class=\"name\"><%=pizza.title%></h3>\r\n            <p class=\"type\"><%=pizza.type%></p>\r\n\r\n            <p class=\"ingredients\">\r\n                <%=getIngredientsArray(pizza).join(\", \")%>\r\n            </p>\r\n        </div>\r\n\r\n        <div class=\"buy-columns\">\r\n\r\n            <%if (pizza.small_size) {%>\r\n            <div class=\"<%=getBuyColumnClass(pizza)%>\">\r\n                <div class=\"diameter\"><img src=\"../assets/images/size-icon.svg\"/>\r\n                    <%=pizza.small_size.size%>\r\n                </div>\r\n                <div class=\"mass\"><img src=\"../assets/images/weight.svg\"/>\r\n                    <%=pizza.small_size.weight%>\r\n                </div>\r\n                <div class=\"price\">\r\n                    <%=pizza.small_size.price%>\r\n                </div>\r\n                <div class=\"currency\">грн.</div>\r\n                <button type=\"button\" class=\"btn buy-small\">Купити</button>\r\n            </div>\r\n            <%}%>\r\n\r\n            <%if (pizza.big_size) {%>\r\n            <div class=\"<%=getBuyColumnClass(pizza)%>\">\r\n                <div class=\"diameter\"><img src=\"../assets/images/size-icon.svg\"/>\r\n                    <%=pizza.big_size.size%>\r\n                </div>\r\n                <div class=\"mass\"><img src=\"../assets/images/weight.svg\"/>\r\n                    <%=pizza.big_size.weight%>\r\n                </div>\r\n                <div class=\"price\">\r\n                    <%=pizza.big_size.price%>\r\n                </div>\r\n                <div class=\"currency\">грн.</div>\r\n                <button type=\"button\" class=\"btn buy-big\">Купити</button>\r\n            </div>\r\n            <%}%>\r\n\r\n        </div>\r\n\r\n        <span class=\"clearfix\"></span>\r\n    </div>\r\n</div>\r\n");
+exports.PizzaCart_OneItem = ejs.compile("<div class=\"pizza-cart-item\">\r\n\r\n    <span class=\"title\">\r\n        <%= pizza.title %> (<%=size_name%>)\r\n    </span>\r\n\r\n    <div class=\"diameter-mass\">\r\n        <img class=\"sizeImg\" src=\"../assets/images/size-icon.svg\"/>\r\n        <%=diameter%>\r\n        <img class=\"weightImg\" src=\"../assets/images/weight.svg\"/>\r\n        <%=weight%>\r\n    </div>\r\n\r\n    <div class=\"cart-buttons-holder\">\r\n        <b><%= price %> грн.</b>\r\n        <% if (editable) { %>\r\n        <button class=\"btn btn-danger minus\"><b>-</b></button>\r\n        <% } %>\r\n        <span class=\"field-label label-default quantity\"><%= quantity %></span>\r\n        <% if (editable) { %>\r\n        <button class=\"btn btn-success plus\"><b>+</b></button>\r\n        <button class=\"btn btn-default delete\"><b>x</b></button>\r\n        <% } %>\r\n    </div>\r\n\r\n    <img class=\"preview-img\" src=\"<%=pizza.icon%>\"/>\r\n\r\n</div>");
 
-},{"ejs":9}],3:[function(require,module,exports){
+},{"ejs":10}],3:[function(require,module,exports){
 $(function(){
     // This code will execute when the page is ready
     var PizzaMenu = require('./pizza/PizzaMenu');
@@ -54,46 +54,94 @@ $(function(){
     PizzaCart.initialiseCart();
     PizzaMenu.initialiseMenu();
 });
-},{"./order/Order":4,"./pizza/PizzaCart":5,"./pizza/PizzaMenu":6}],4:[function(require,module,exports){
-var cart = require("../pizza/PizzaCart");
+},{"./order/Order":5,"./pizza/PizzaCart":6,"./pizza/PizzaMenu":7}],4:[function(require,module,exports){
+function initLiqPay() {
+    var sum = require('../pizza/PizzaCart').getPizzaSum();
+    var pizzas_in_order = "";
 
-var $proceedBtn = $("#order-proceed-btn");
+    require('../pizza/PizzaCart').getPizzaInCart().forEach(function (t) {
+        pizzas_in_order += "- " + t.quantity + "шт. [" + (t.size === 'big_size' ? 'Велика' : 'Мала') + "] "
+            + t.pizza.title + ";\n";
+    });
 
-function setApproveListener($input, warnMessage, re) {
-    var $parent = $input.parent();
-    var $grandParent = $parent.parent();
-    var $warn = $parent.find(".warning");
-
-    function test () {
-        var str = String($input.val());
-        var passes = str.length===0 || re.test(str);
-
-        if (!passes) {
-            if (str.length !== 0)
-                $parent.addClass("has-error");
-            $parent.removeClass("has-success");
-        } else {
-            if (str.length !== 0)
-                $parent.addClass("has-success");
-            $parent.removeClass("has-error");
+    var order_info = {
+        amount: sum,
+        description: 'Замовлення піци: ' + $('#name-input').val() + '\n' +
+        'Адреса доставки: ' + $("#address-input").val() + '\n' +
+        'Телефон: ' + $('#phone-input').val() + '\n' +
+        pizzas_in_order +
+        '\nРазом ' + sum + 'грн'
+    };
+    require('../Server_API.js').createOrder(order_info, function (err, data) {
+        if (!err) {
+            LiqPayCheckout.init({
+                data: data.data,
+                signature: data.signature,
+                embedTo: "#liqpay",
+                mode: "popup"	//	embed	||	popup
+            }).on("liqpay.callback", function (data) {
+                console.log(data.status);
+                console.log(data);
+            }).on("liqpay.ready", function (data) {
+                //	ready
+            }).on("liqpay.close", function (data) {
+                //	close
+            });
         }
-        $warn.html(passes? "" : warnMessage);
+    });
+}
+
+exports.initLiqPay = initLiqPay;
+},{"../Server_API.js":1,"../pizza/PizzaCart":6}],5:[function(require,module,exports){
+$(function () {
+    var cart = require("../pizza/PizzaCart");
+
+
+    var $proceedBtn = $("#order-proceed-btn");
+
+    function setApproveListener($input, warnMessage, re) {
+        var $parent = $input.parent();
+        var $grandParent = $parent.parent();
+        var $warn = $parent.find(".warning");
+
+        function test() {
+            var str = String($input.val());
+            var passes = str.length === 0 || re.test(str);
+
+            if (!passes) {
+                if (str.length !== 0)
+                    $parent.addClass("has-error");
+                $parent.removeClass("has-success");
+            } else {
+                if (str.length !== 0)
+                    $parent.addClass("has-success");
+                $parent.removeClass("has-error");
+            }
+            $warn.html(passes ? "" : warnMessage);
+        }
+
+        $input.change(test);
+        $input.keypress(test);
+        $input.on("input", test);
     }
 
-    $input.change(test);
-    $input.keypress(test);
-    $input.on("input", test);
-}
-var $nameInput = $("#name-input");
-var $phoneInput = $("#phone-input");
-var $addressInput = $("#address-input");
-setApproveListener($nameInput, "Ім'я має містити лише символи та пробіли!",
-    /^[a-z а-яА-Я,.'-]+$/i);
-setApproveListener($phoneInput, "Некоретний телефон!",
-    /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
+    var $nameInput = $("#name-input");
+    var $phoneInput = $("#phone-input");
+    var $addressInput = $("#address-input");
+    setApproveListener($nameInput, "Ім'я має містити лише символи та пробіли!",
+        /^[a-z а-яА-Я,.'-]+$/i);
+    setApproveListener($phoneInput, "Некоретний телефон!",
+        /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
 
 
-},{"../pizza/PizzaCart":5}],5:[function(require,module,exports){
+    var liqPay = require('./LiqPay');
+
+    $proceedBtn.click(function () {
+        liqPay.initLiqPay();
+    });
+});
+
+},{"../pizza/PizzaCart":6,"./LiqPay":4}],6:[function(require,module,exports){
 String.prototype.hashCode = function() {
     var hash = 0;
     if (this.length === 0) return hash;
@@ -261,6 +309,14 @@ function updateCart(to_slide_down) {
     }
 }
 
+function getPizzaSum() {
+    var sum = 0;
+    Cart.forEach(function (t) {
+        sum += parseInt(t.pizza[t.size].price) * parseInt(t.quantity);
+    });
+    return sum;
+}
+
 exports.removeFromCart = removeFromCart;
 exports.addToCart = addToCart;
 
@@ -268,7 +324,9 @@ exports.getPizzaInCart = getPizzaInCart;
 exports.initialiseCart = initialiseCart;
 
 exports.PizzaSize = PizzaSize;
-},{"../Templates":2,"basil.js":7}],6:[function(require,module,exports){
+
+exports.getPizzaSum = getPizzaSum;
+},{"../Templates":2,"basil.js":8}],7:[function(require,module,exports){
 var Templates = require('../Templates');
 var PizzaCart = require('./PizzaCart');
 /** @type {Array} */
@@ -347,7 +405,7 @@ function initialiseMenu() {
 
 exports.filterPizza = filterPizza;
 exports.initialiseMenu = initialiseMenu;
-},{"../Server_API":1,"../Templates":2,"./PizzaCart":5}],7:[function(require,module,exports){
+},{"../Server_API":1,"../Templates":2,"./PizzaCart":6}],8:[function(require,module,exports){
 (function () {
 	// Basil
 	var Basil = function (options) {
@@ -735,9 +793,9 @@ exports.initialiseMenu = initialiseMenu;
 
 })();
 
-},{}],8:[function(require,module,exports){
-
 },{}],9:[function(require,module,exports){
+
+},{}],10:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1605,7 +1663,7 @@ if (typeof window != 'undefined') {
   window.ejs = exports;
 }
 
-},{"../package.json":11,"./utils":10,"fs":8,"path":12}],10:[function(require,module,exports){
+},{"../package.json":12,"./utils":11,"fs":9,"path":13}],11:[function(require,module,exports){
 /*
  * EJS Embedded JavaScript templates
  * Copyright 2112 Matthew Eernisse (mde@fleegix.org)
@@ -1771,7 +1829,7 @@ exports.cache = {
   }
 };
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports={
   "_from": "ejs@^2.4.1",
   "_id": "ejs@2.5.7",
@@ -1795,7 +1853,7 @@ module.exports={
   "_resolved": "https://registry.npmjs.org/ejs/-/ejs-2.5.7.tgz",
   "_shasum": "cc872c168880ae3c7189762fd5ffc00896c9518a",
   "_spec": "ejs@^2.4.1",
-  "_where": "C:\\Users\\Sasha\\WebstormProjects\\JS-Pizza",
+  "_where": "C:\\Users\\Maxim\\Documents\\GitHub\\JS-Pizza-alexandr\\JS-Pizza",
   "author": {
     "name": "Matthew Eernisse",
     "email": "mde@fleegix.org",
@@ -1852,7 +1910,7 @@ module.exports={
   "version": "2.5.7"
 }
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -2080,7 +2138,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":13}],13:[function(require,module,exports){
+},{"_process":14}],14:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
